@@ -2,55 +2,59 @@
 /*   Provided Code - Please Don't Edit   */
 ////////////////////////////////////////////////
 'use strict';
+///////////////////////////////////////////////////
+/*    Computer & Player Inputs/Moves Generated   */
+//////////////////////////////////////////////////
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
-    return prompt();
+    return prompt("Please choose either 'rock', 'paper', or 'scissors'.");
 }
+
 function randomPlay() {
     var randomNumber = Math.random();
     if (randomNumber < 0.33) {
-        return "rock";
+        randomNumber = "rock";
     } else if (randomNumber < 0.66) {
-        return "paper";
+        randomNumber = "paper";
     } else {
-        return "scissors";
+        randomNumber = "scissors";
     }
 }
-////////////////////////////////////////////////
-/*           Write Your Code Below            */
-////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////
+/*  Computer and Player Moves Assigned r || s || p values  */
+/////////////////////////////////////////////////////////////
+
 
 function getPlayerMove(move) {
-    if (move === true) {
-    	return move;
+    if (move === "rock" || move === "paper" || move === "scissors") {
+        return move;
     } else if (move === false) {
-    	return getInput();
+        return getInput();
     }
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `getInput()`.
 }
 
 function getComputerMove(move) {
-	 if (move === true) {
-    	return move;
+     if (move === "rock" || move === "paper" || move === "scissors") {
+        return move;
     } else if (move === false) {
     	return randomPlay();
     }
 }
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
 
 
+//////////////////////////////////////////////////////////////
+/*          Values compared and winners determined          */
+//////////////////////////////////////////////////////////////
 
 var getWinner = function (playerMove,computerMove) {
     var winner;
     if (playerMove === computerMove) {
         winner = "tie";
     } else if (playerMove === "rock") {
-    	if (computerMove === "paper") {
-    		winner = "computer";
+        if (computerMove === "paper") {
+        	winner = "computer";
     	} else {
     		winner = "player";
     	}
@@ -72,20 +76,20 @@ var getWinner = function (playerMove,computerMove) {
    return winner; 
 }
 
-    
-getWinner(playerMove, computerMove); 
-    // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
-    // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
-    // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    
-  
+getWinner(getPlayerMove(getInput()), getComputerMove(randomPlay()));
 
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
     return [playerWins, computerWins];
 }
+    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five time
+    /// This function should continue to play Rock Paper Scissors until either the
+  // player or the computer has won five times.
+  // After each 'round', display some text in the console indicating who played
+  // what, who won, and what the current scoreboard looks like.
+  // For example,
+  //  console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+  //  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
 
